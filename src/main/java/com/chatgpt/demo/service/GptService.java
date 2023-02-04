@@ -3,10 +3,7 @@ package com.chatgpt.demo.service;
 import com.chatgpt.demo.model.ReqeustQuestionVo;
 import com.chatgpt.demo.model.RequestMakeNameVo;
 import com.chatgpt.demo.model.ResponseVo;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
@@ -17,22 +14,24 @@ import java.util.Map;
 
 @Service
 public class GptService {
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "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";
     private static final String ENDPOINT = "https://api.openai.com/v1/completions";
     public ResponseVo getVariableName(RequestMakeNameVo requestMakeNameVo) {
         ResponseVo responseVo = new ResponseVo();
-        String language = "";
+        String caseName = "";
         try {
-            if(!ObjectUtils.isEmpty(requestMakeNameVo.getLanguage())){
-                language = requestMakeNameVo.getLanguage() + "를 사용했습니다.";
+            if(!ObjectUtils.isEmpty(requestMakeNameVo.getCaseName())){
+                caseName = "Please make it into a " + requestMakeNameVo.getCaseName() + " case";
             }
 
-            String question = requestMakeNameVo.getText() + "(을)를 지칭하는 변수 명으로 뭐가 적절할까요? " + language;
+            String question = requestMakeNameVo.getText() + "(을)를 지칭하는 변수 명으로 뭐가 적절할까요? " + caseName;
 
             String answer = generateText(question, 0.5f, 100);
 
+            String answerFilter1 = answer.replaceAll("\n", "");
+            String result =  answerFilter1.replaceAll("\\.","");
             responseVo.setCode(200);
-            responseVo.setResponse(answer.replaceAll("\n", ""));
+            responseVo.setResponse(result);
         } catch (Exception e) {
             responseVo.setCode(500);
             responseVo.setResponse("generateText error(서버 에러)");
@@ -42,18 +41,20 @@ public class GptService {
 
     public ResponseVo getClassName(RequestMakeNameVo requestMakeNameVo) {
         ResponseVo responseVo = new ResponseVo();
-        String language = "";
+        String caseName = "";
         try {
-            if(!ObjectUtils.isEmpty(requestMakeNameVo.getLanguage())){
-                language = requestMakeNameVo.getLanguage() + "를 사용했습니다.";
+            if(!ObjectUtils.isEmpty(requestMakeNameVo.getCaseName())){
+                caseName = "Please make it into a " + requestMakeNameVo.getCaseName() + " case";
             }
 
-            String question = requestMakeNameVo.getText() + "(을)를 지칭하는 클래스 명으로 뭐가 적절할까요? " + language;
+            String question = requestMakeNameVo.getText() + "(을)를 지칭하는 클래스 명으로 뭐가 적절할까요? " + caseName;
 
             String answer = generateText(question, 0.5f, 100);
 
             responseVo.setCode(200);
-            responseVo.setResponse(answer.replaceAll("\n", ""));
+            String answerFilter1 = answer.replaceAll("\n", "");
+            String result =  answerFilter1.replaceAll("\\.","");
+            responseVo.setResponse(result);
         } catch (Exception e) {
             responseVo.setCode(500);
             responseVo.setResponse("generateText error(서버 에러)");
@@ -68,11 +69,41 @@ public class GptService {
             String answer = generateText(reqeustQuestionVo.getQuestion(), 0.5f, 1000);
 
             responseVo.setCode(200);
-            responseVo.setResponse(answer.replaceAll("\n", ""));
+            responseVo.setResponse(answer.replaceAll("['.`.]|\n", ""));
         } catch (Exception e) {
             responseVo.setCode(500);
             responseVo.setResponse("generateText error(서버 에러)");
         }
+        return responseVo;
+    }
+
+    public ResponseVo getGPTModels() {
+        ResponseVo responseVo = new ResponseVo();
+        try {
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity request = new HttpEntity(headers);
+
+            RestTemplate restTemplate = new RestTemplate();
+
+            ResponseEntity<String> response = restTemplate.exchange(
+                    "https://api.openai.com/v1/models",
+                    HttpMethod.GET,
+                    request,
+                    String.class
+            );
+
+            String answer = response.toString();
+
+            responseVo.setCode(200);
+            responseVo.setResponse(answer);
+        } catch (Exception e) {
+            responseVo.setCode(500);
+            responseVo.setResponse("generateText error(서버 에러)");
+        }
+
         return responseVo;
     }
 

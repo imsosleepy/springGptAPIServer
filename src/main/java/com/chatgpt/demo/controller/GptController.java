@@ -42,29 +42,9 @@ public class GptController {
     }
 
     @GetMapping("gpt/model/list")
-    public String getModelList(){
-        String answer = getGPTModels();
+    public ResponseVo getModelList(){
+        ResponseVo responseVo = gptService.getGPTModels();
 
-        System.out.println(answer);
-        return "naming.html";
-    }
-
-    public String getGPTModels() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        //headers.set("Authorization", "Bearer " + API_KEY);
-
-        HttpEntity request = new HttpEntity(headers);
-
-        RestTemplate restTemplate = new RestTemplate();
-
-        ResponseEntity<String> response = restTemplate.exchange(
-                "https://api.openai.com/v1/models",
-                HttpMethod.GET,
-                request,
-                String.class
-        );
-
-        return response.toString();
+        return responseVo;
     }
 }
