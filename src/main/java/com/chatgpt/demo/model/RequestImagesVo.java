@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ReqeustQuestionVo {
+public class RequestImagesVo {
     private String question;
 }
