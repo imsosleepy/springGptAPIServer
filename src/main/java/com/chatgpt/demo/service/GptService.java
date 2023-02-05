@@ -211,7 +211,6 @@ public class GptService {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Map> response = restTemplate.postForEntity(IMAGES_ENDPOINT, requestEntity, Map.class);
         Map<String, Object> responseBody = response.getBody();
-        System.out.println(responseBody.toString());
 
         List<Map<String,Object>> dataList = (List<Map<String,Object>>)responseBody.get("data");
         String url = (String)(dataList.get(0).get("url"));

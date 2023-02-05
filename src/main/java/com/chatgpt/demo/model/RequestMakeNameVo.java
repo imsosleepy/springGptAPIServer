@@ -16,6 +16,6 @@ public class RequestMakeNameVo {
     @Size(max = 100)
     private String text;
     @Size(max = 10)
-    @Pattern(regexp = "camel|kebab|snake")
+    @Pattern(regexp = "camel|snake")
     private String caseName;
 }
