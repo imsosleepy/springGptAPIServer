@@ -23,7 +23,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **1. 변수 생성하기**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080--54241652278080)}}/gptAPI/make/variable/name|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/make/variable/name|
 ### **1.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -53,7 +53,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **2. 클래스명 생성하기**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080--54241652278080)}}/gptAPI/make/class/name|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/make/class/name|
 ### **2.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -123,7 +123,8 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 | Name | Type | Description | Mandatory |
 |------|------|------|-----|
-|question  | String |질문할 문자열| Y|
+|input  | String |수정 작업의 타겟이 되는 문자열| Y|
+|instruction  | String |수정할 내용을 알려주는 문자열| Y|
 
 
 ### **4.2. Response**
@@ -182,7 +183,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 |------|---|
 |GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/gpt/model/list|
 ### **5.1. Request**
-없음(단일 모델을 조회할 수 있으나 구현하지 않음)
+없음(단일 모델을 조회할 수 있으나 현 서버에서는 구현하지 않음)
 ### **5.2. Response**
 | Name | Type | Description | Mandatory |
 |------|------|------|-----|
