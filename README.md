@@ -3,7 +3,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 사용 기술 : AWS EC2, Spring Framework, Java
 
-블로그 : https://akku-dev.tistory.com/
+블로그 : https://akku-dev.tistory.com/52
 
 ---
 ## **EC2 PUBLIC IP : 54.241.65.227:8080**
@@ -23,7 +23,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **1. 변수 생성하기**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/make/variable/name|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080--54241652278080)}}/gptAPI/make/variable/name|
 ### **1.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -53,7 +53,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **2. 클래스명 생성하기**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/make/class/name|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080--54241652278080)}}/gptAPI/make/class/name|
 ### **2.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -86,7 +86,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **3. 질답하기(Completions)**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/make/conversation|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/make/conversation|
 ### **3.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -118,7 +118,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **4. 수정하기(Edit)**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/make/edit|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/make/edit|
 ### **4.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -149,7 +149,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 ## **5. 이미지 그리기(Images)**
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/make/images|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/make/images|
 ### **5.1. Request**
 
 | Name | Type | Description | Mandatory |
@@ -180,7 +180,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 응답이 정리되지 않아 엄청 나게깁니다.
 |HTTP METHOD|URL|
 |------|---|
-|GET|htttp://{{[EC2 IP](#EC2-PUBLIC-IP)}}/gptAPI/gpt/model/list|
+|GET|htttp://{{[EC2 IP](#ec2-public-ip--54241652278080)}}/gptAPI/gpt/model/list|
 ### **5.1. Request**
 없음(단일 모델을 조회할 수 있으나 구현하지 않음)
 ### **5.2. Response**
