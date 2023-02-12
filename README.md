@@ -6,7 +6,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 블로그 : https://akku-dev.tistory.com/52
 
 ---
-## **EC2 PUBLIC IP : 54.241.65.227:8080**
+## **EC2 PUBLIC IP : ...**
 
 ### **공통 규격**
 ### **1. Status Code**
@@ -39,7 +39,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **1.3. Example**
 - Request  
-`http://54.241.65.227:8080/gptAPI/make/variable/name?text="빨간 사과"&caseName=camel`
+`http://[ip]:[port}/gptAPI/make/variable/name?text="빨간 사과"&caseName=camel`
 - Response 
 ```json
 {
@@ -69,7 +69,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **2.3. Example**
 - Request :
-`http://54.241.65.227:8080/gptAPI/make/variable/name?class="스포츠카"`
+`http://[ip]:[port}/gptAPI/make/variable/name?class="스포츠카"`
 
 - Response 
 ```json
@@ -102,7 +102,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **3.3. Exmaple**
 - Request :
-`http://54.241.65.227:8080/gptAPI/make/conversation?question="펭귄은 춤을 잘 추나요?"`
+`http://[ip]:[port}/gptAPI/make/conversation?question="펭귄은 춤을 잘 추나요?"`
 
 - Response 
 ```json
@@ -136,7 +136,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **4.3. Exmaple**
 - Request :
-`http://54.241.65.227:8080/gptAPI/make/edit?input="Do you known panguin&instruction=Fix the spelling mistakes"`
+`http://[ip]:[port}/gptAPI/make/edit?input="Do you known panguin&instruction=Fix the spelling mistakes"`
 - Response 
 ```json
 {
@@ -167,7 +167,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **5.3. Exmaple**
 - Request :
-`http://54.241.65.227:8080/gptAPI/make/images?question=%22emperor%20penguin%22`
+`http://[ip]:[port}/gptAPI/make/images?question=%22emperor%20penguin%22`
 - Response 
 ```json
 {
@@ -192,7 +192,7 @@ EC2에 구축된 서버에 요청이 들어오면, OpenAI API로 외부 요청�
 
 ### **5.3. Exmaple**
 - Request :
-`http://54.241.65.227:8080/gptAPI/gpt/model/list`
+`http://[ip]:[port}/gptAPI/gpt/model/list`
 - Response :
 ```json
 {
